@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <header>
+        <h1>Temperature Converter</h1>
+    </header>
+    <main>
+        <form id="converter-form">
+            <label for="inputtemp">Enter temperature below here:</label>
+            <br>
+            <input type="number" id="temperature" required>
+            <select id="unit">
+                <option value="C">Celsius &deg;C</option>
+                <option value="F">Fahrenheit &deg;F</option>
+                <option value="K">Kelvin &deg;K</option>
+                <option value="R">Reamur &deg;Ré</option>
+            </select>
+            <br>
+            <button type="swap">
+                <img src="assets/swap.png" alt="Swap" width="20" height="20">
+            </button>
+            <br>
+            <label for="outputtemp">Converted temperature:</label>
+            <br>
+            <input type="number" id="outputtemp" disabled>
+            <select id="outputunit">
+                <option value="C">Celsius &deg;C</option>
+                <option value="F">Fahrenheit &deg;F</option>
+                <option value="K">Kelvin &deg;K</option>
+                <option value="R">Reamur &deg;Ré</option>
+            </select>
+            <br>
+            <label for="explaintemp">Explanation:</label>
+            <br>
+            <input type="text" id="explaintemp" disabled>
+            <br>
+            <button type="convert">Convert</button>
+            <button type="reset">Reset</button>
+        </form>
+        <hr>
+        <h2>Explanation</h2>
+        <p>To convert between different temperature scales, you can use the following formulas:</p>
+        <p><strong>Celcius</strong></p>
+        <ul>
+            <li>Celcius to Fahrenheit: <code>F = C x 9/5 + 32</code></li>
+            <li>Celcius to Kelvin: <code>K = C + 273.15</code></li>
+            <li>Celcius to Reamur: <code>Ré = C x 4/5</code></li>
+        </ul>
+        <p><strong>Fahrenheit</strong></p>
+        <ul>
+            <li>Fahrenheit to Celcius: <code>C = (F - 32) x 5/9</code></li>
+            <li>Fahrenheit to Kelvin: <code>K = (F - 32) x 5/9 + 273.15</code></li>
+            <li>Fahrenheit to Reamur: <code>Ré = (F - 32) x 4/9</code></li>
+        </ul>
+        <p><strong>Kelvin</strong></p>
+        <ul>
+            <li>Kelvin to Celcius: <code>C = K - 273.15</code></li>
+            <li>Kelvin to Fahrenheit: <code>F = (K - 273.15) x 9/5 + 32</code></li>
+            <li>Kelvin to Reamur: <code>Ré = (K - 273.15) x 4/5</code></li>
+        </ul>
+        <p><strong>Reamur</strong></p>
+        <ul>
+            <li>Reamur to Celcius: <code>C = Ré x 5/4</code></li>
+            <li>Reamur to Fahrenheit: <code>F = Ré x 9/4 + 32</code></li>
+            <li>Reamur to Kelvin: <code>Ré = Ré x 5/4 + 273.15</code></li>
+        </ul>
+        <p>Note: The formulas above are based on the definitions of the temperature scales.</p>
+    </main>
+</body>
+</html>
