@@ -6,9 +6,9 @@ body {
 }
 
 hr {
-    width: 50%;
+    width: 80%;
     margin: 10px auto;
-    border: 1px solid #ccc;
+    border: 1px solid #333333;
 }
 
 p {
@@ -50,23 +50,98 @@ h2 {
     width: 50%;
 }
 
+.background {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/background-image.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+.blur-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(200,200,200,0.2);
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.12);
+    z-index: -1;
+}
+
+#mute-btn {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 100;
+    background: #007AFF;
+    border: none;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 0;
+}
+
+#mute-btn:hover {
+    background: #005bb5;
+}
+
+#mute-btn:active {
+    background: #004080;
+}
+
+#mute-btn img {
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+}
+
+.main-content {
+    background: rgba(255, 255, 255, 0.55);
+    position: relative;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.28);
+    margin: 48px auto 48px auto;
+    padding: 12px 0 12px 0;
+    width: 50%;
+    transition: box-shadow 0.2s;
+}
+
 .temperature-panel {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    gap: 18px;
+    gap: 6px;
 }
 
 .inputtemp {
     display: flex;
-    width: 400px;
+    width: 80%;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
     margin: 0 auto 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 1.7%;
 }
 
 .inputtemp input {
@@ -88,16 +163,24 @@ h2 {
     cursor: pointer;
 }
 
+.inputtemp select:hover {
+    background-color: #e0e0e0;
+}
+
 #swap {
+    width: 44px;
+    height: 44px;
     background-color: #007AFF;
     color: #ffffff;
     border: none;
-    padding: 5px 9px;
+    padding: 0;
     font-size: 14px;
     cursor: pointer;
-    border-radius: 5px;
-    margin: 10px auto;
-    display: block;
+    border-radius: 8px;
+    margin: 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #swap:hover {
@@ -110,11 +193,11 @@ h2 {
 
 .outputtemp {
     display: flex;
-    width: 400px;
+    width: 80%;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    margin: 0 auto 0 auto;
+    margin: 8px auto 16px auto;
 }
 
 .outputtemp input {
@@ -136,6 +219,10 @@ h2 {
     cursor: pointer;
 }
 
+.outputtemp select:hover {
+    background-color: #e0e0e0;
+}
+
 #explainheader {
     display: block;
     width: 50%;
@@ -145,7 +232,7 @@ h2 {
 
 .explaintemp {
     display: flex;
-    width: 400px;
+    width: 80%;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
@@ -178,7 +265,7 @@ h2 {
     border-radius: 5px;
     margin: 0 0 20px 0;
     display: inline-block;
-    min-width: 80px;
+    min-width: 30%;
 }
 
 #convert:hover {
@@ -198,7 +285,7 @@ h2 {
     border-radius: 5px;
     margin: 0 0 20px 0;
     display: inline-block;
-    min-width: 80px;
+    min-width: 30%;
     outline: 1px solid #ccc;
 }
 
@@ -211,17 +298,22 @@ h2 {
 }
 
 details {
-    width: 50%;
+    width: 80%;
     margin: 12px auto 20px auto;
     border: 1px solid #ccc;
     border-radius: 6px;
     background: #fafbfc;
-    transition: box-shadow 0.2s;
+    overflow: hidden;
+    transition: box-shadow 0.2s, max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+    will-change: max-height, opacity;
+    opacity: 1;
     box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-    padding: 0;
 }
 
 details[open] {
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     border-color: #aaa;
 }
@@ -267,13 +359,76 @@ details code {
     font-family: 'Latin Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', Times, serif;
 }
 
+details > *:not(summary) {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    will-change: max-height;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+details.open > *:not(summary) {
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
 #note {
     margin-bottom: 50px;
 }
 
+.watermark {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    font-style: italic;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    opacity: 0.2;
+    pointer-events: none;
+    user-select: none;
+    margin: 0;
+    white-space: nowrap;
+}
+
+header,
+h2,
+p,
+li,
+#explainheader,
+details {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 @media (max-width: 600px) {
     body {
         font-size: 15px;
+    }
+
+    .background {
+        background-attachment: scroll;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: 300px;
+        padding: 20px 14px 20px 14px;
+        border-radius: 24px;
+        margin: 32px 12px 32px 12px;
+    }
+
+    .main-content,
+    details {
+        max-width: 98vw;
+        width: 98vw;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
     }
 
     header,
@@ -282,7 +437,18 @@ details code {
     li,
     #explainheader,
     details {
-        width: 98%;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main-content,
+    .inputtemp,
+    .outputtemp,
+    .explaintemp,
+    details {
+        max-width: 420px;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -290,7 +456,7 @@ details code {
     .inputtemp,
     .outputtemp,
     .explaintemp {
-        width: 99%;
+        width: 100%;
     }
 
     .inputtemp input,
@@ -302,9 +468,11 @@ details code {
 
     .inputtemp select,
     .outputtemp select {
-        min-width: 70px;
+        width: 100%;
+        min-width: 0;
         font-size: 15px;
-        padding: 8px;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     .button-row {
@@ -320,7 +488,7 @@ details code {
     }
 
     details ul {
-        margin-left: 18px;
+        margin-left: 8px;
         font-size: 14px;
     }
 
