@@ -4,72 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Temperature Converter</h1>
     </header>
+    <hr>
     <main>
         <form id="converter-form">
-            <label for="inputtemp">Enter temperature below here:</label>
+            <label class="temperature-panel" for="input-temperature">
+                <p>Welcome to the Temperature Converter! This simple tool helps you easily convert temperatures between Celsius, Fahrenheit, Kelvin, and Réaumur. Enter a value, choose the units, and get instant results along with explanations of the conversion formulas.</p>
+                <p>Enter a temperature value and select the unit you want to convert from. Then, choose the unit you want to convert to. The converted temperature will be displayed below include explanation. Enjoy!</p>
+            </label>
             <br>
-            <input type="number" id="temperature" required>
-            <select id="unit">
-                <option value="C">Celsius &deg;C</option>
-                <option value="F">Fahrenheit &deg;F</option>
-                <option value="K">Kelvin &deg;K</option>
-                <option value="R">Reamur &deg;Ré</option>
-            </select>
-            <br>
-            <button type="swap">
-                <img src="assets/swap.png" alt="Swap" width="20" height="20">
+            <div class="inputtemp">
+                <input type="number" placeholder="Enter temperature here..." required>
+                <select class="select">
+                    <option value="C">&deg;C</option>
+                    <option value="F">&deg;F</option>
+                    <option value="K">&deg;K</option>
+                    <option value="R">&deg;Ré</option>
+                </select>
+                <br>
+            </div>
+            <button type="button" id="swap" aria-label="Swap units">
+                <img src="assets/swap-arrow-light.png" alt="Swap" width="20" height="20">
             </button>
             <br>
-            <label for="outputtemp">Converted temperature:</label>
+            <div class="outputtemp">
+                <input type="number" placeholder="Converted temperature..." readonly>
+                <select class="select">
+                    <option value="C">&deg;C</option>
+                    <option value="F">&deg;F</option>
+                    <option value="K">&deg;K</option>
+                    <option value="R">&deg;Ré</option>
+                </select>
+                <br>
+            </div>
+            <label for="explain-temperature" id="explainheader">Explanation:</label>
             <br>
-            <input type="number" id="outputtemp" disabled>
-            <select id="outputunit">
-                <option value="C">Celsius &deg;C</option>
-                <option value="F">Fahrenheit &deg;F</option>
-                <option value="K">Kelvin &deg;K</option>
-                <option value="R">Reamur &deg;Ré</option>
-            </select>
+            <div class="explaintemp">
+                <input type="text" readonly>
+            </div>
             <br>
-            <label for="explaintemp">Explanation:</label>
-            <br>
-            <input type="text" id="explaintemp" disabled>
-            <br>
-            <button type="convert">Convert</button>
-            <button type="reset">Reset</button>
+            <div class="button-row">
+                <button type="button" id="convert"><strong>Convert</strong></button>
+                <button type="reset" id="reset"><strong>Reset</strong></button>
+            </div>
         </form>
         <hr>
         <h2>Explanation</h2>
         <p>To convert between different temperature scales, you can use the following formulas:</p>
-        <p><strong>Celcius</strong></p>
-        <ul>
+        <details>
+          <summary><strong>Celcius (&deg;C)</strong></summary>
+          <ul>
             <li>Celcius to Fahrenheit: <code>F = C x 9/5 + 32</code></li>
             <li>Celcius to Kelvin: <code>K = C + 273.15</code></li>
             <li>Celcius to Reamur: <code>Ré = C x 4/5</code></li>
-        </ul>
-        <p><strong>Fahrenheit</strong></p>
-        <ul>
+          </ul>
+        </details>
+        <details>
+          <summary><strong>Fahrenheit (&deg;F)</strong></summary>
+          <ul>
             <li>Fahrenheit to Celcius: <code>C = (F - 32) x 5/9</code></li>
             <li>Fahrenheit to Kelvin: <code>K = (F - 32) x 5/9 + 273.15</code></li>
             <li>Fahrenheit to Reamur: <code>Ré = (F - 32) x 4/9</code></li>
-        </ul>
-        <p><strong>Kelvin</strong></p>
-        <ul>
+          </ul>
+        </details>
+        <details>
+          <summary><strong>Kelvin (&deg;K)</strong></summary>
+          <ul>
             <li>Kelvin to Celcius: <code>C = K - 273.15</code></li>
             <li>Kelvin to Fahrenheit: <code>F = (K - 273.15) x 9/5 + 32</code></li>
             <li>Kelvin to Reamur: <code>Ré = (K - 273.15) x 4/5</code></li>
-        </ul>
-        <p><strong>Reamur</strong></p>
-        <ul>
+          </ul>
+        </details>
+        <details>
+          <summary><strong>Reamur (&deg;Ré)</strong></summary>
+          <ul>
             <li>Reamur to Celcius: <code>C = Ré x 5/4</code></li>
             <li>Reamur to Fahrenheit: <code>F = Ré x 9/4 + 32</code></li>
-            <li>Reamur to Kelvin: <code>Ré = Ré x 5/4 + 273.15</code></li>
-        </ul>
-        <p>Note: The formulas above are based on the definitions of the temperature scales.</p>
+            <li>Reamur to Kelvin: <code>K = Ré x 5/4 + 273.15</code></li>
+          </ul>
+        </details>
+        <p id="note">Note: The formulas above are based on the definitions of the temperature scales.</p>
     </main>
 </body>
 </html>
