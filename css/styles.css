@@ -56,6 +56,7 @@ h2 {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    gap: 18px;
 }
 
 .inputtemp {
@@ -64,7 +65,8 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
+    margin-bottom: 20px;
 }
 
 .inputtemp input {
@@ -90,12 +92,20 @@ h2 {
     background-color: #007AFF;
     color: #ffffff;
     border: none;
-    padding: 5px 12px;
+    padding: 5px 9px;
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
-    margin: 2% auto 0 auto;
+    margin: 10px auto;
     display: block;
+}
+
+#swap:hover {
+    background-color: #005bb5;
+}
+
+#swap:active {
+    background-color: #004080;
 }
 
 .outputtemp {
@@ -104,7 +114,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
 }
 
 .outputtemp input {
@@ -169,7 +179,14 @@ h2 {
     margin: 0 0 20px 0;
     display: inline-block;
     min-width: 80px;
-    outline: 1px solid #007AFF;
+}
+
+#convert:hover {
+    background-color: #005bb5;
+}
+
+#convert:active {
+    background-color: #004080;
 }
 
 #reset {
@@ -183,6 +200,14 @@ h2 {
     display: inline-block;
     min-width: 80px;
     outline: 1px solid #ccc;
+}
+
+#reset:hover {
+    background-color: #f0f0f0;
+}
+
+#reset:active {
+    background-color: #e0e0e0;
 }
 
 details {
@@ -211,6 +236,10 @@ summary {
     background: #eaf3ff;
     border-radius: 6px 6px 0 0;
     transition: background 0.2s;
+}
+
+summary:hover {
+    background: #d0e7ff;
 }
 
 details[open] summary {
@@ -242,5 +271,64 @@ details code {
     margin-bottom: 50px;
 }
 
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
 
+    header,
+    h2,
+    p,
+    li,
+    #explainheader,
+    details {
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .inputtemp,
+    .outputtemp,
+    .explaintemp {
+        width: 99%;
+    }
+
+    .inputtemp input,
+    .outputtemp input,
+    .explaintemp input {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .inputtemp select,
+    .outputtemp select {
+        min-width: 70px;
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #convert,
+    #reset {
+        width: 100%;
+        font-size: 15px;
+        padding: 12px 0;
+    }
+
+    details ul {
+        margin-left: 18px;
+        font-size: 14px;
+    }
+
+    details code {
+        font-size: 14px;
+    }
+
+    summary {
+        font-size: 15px;
+    }
+}
