@@ -6,19 +6,23 @@
     <title>Temperature Converter</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
+    <link rel="icon" href="../assets/themometer-icon-website.png" type="image/png">
 </head>
 <body>
-  <audio autoplay loop id="background-music">
-    <source src="../assets/backsound-lofi.mp3" type="audio/mpeg">
-    <source src="../assets/backsound-lofi.ogg" type="audio/ogg">
-    Your browser does not support the audio element.
-  </audio>
+    <audio autoplay loop id="background-music">
+      <source src="../assets/backsound-lofi.mp3" type="audio/mpeg">
+      <source src="../assets/backsound-lofi.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
   <button id="mute-btn" aria-label="Mute/Unmute">
     <img id="mute-icon" src="../assets/audio-on-light.png" alt="Mute/Unmute" width="32" height="32">
   </button>
   <div class="background"></div>
   <div class="blur-layer"></div>
   <div class="main-content">
+  <button id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+    <img id="theme-icon" src="../assets/moon-light.png" alt="Toggle Theme" width="32" height="32">
+  </button>
     <header>
         <h1>Temperature Converter</h1>
     </header>
@@ -42,7 +46,7 @@
                 <img src="assets/swap-arrow-light.png" alt="Swap" width="20" height="20">
             </button>
             <div class="outputtemp">
-                <input type="number" placeholder="Results..." readonly>
+                <input type="number" placeholder="Converted temperature will appear here..." readonly>
                 <select class="select">
                     <option value="C">&deg;C</option>
                     <option value="F" selected>&deg;F</option>
@@ -54,7 +58,7 @@
             <label for="explain-temperature" id="explainheader">Explanation:</label>
             <br>
             <div class="explaintemp">
-                <input type="text" readonly>
+                <input type="text" placeholder="The explanation will appear here..." readonly>
             </div>
             <br>
             <div class="button-row">

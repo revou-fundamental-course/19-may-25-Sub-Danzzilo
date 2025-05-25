@@ -1,5 +1,7 @@
 const audio = document.getElementById("background-music");
-audio.volume = 0.2;
+if (audio) {
+    audio.volume = 0.2; // Set initial volume to 20%
+}
 
 const muteBtn = document.getElementById("mute-btn");
 const muteIcon = document.getElementById("mute-icon");
@@ -11,7 +13,7 @@ muteBtn.addEventListener("click", function() {
     isMuted = !isMuted;
     audioEl.muted = isMuted;
     muteIcon.src = isMuted ? "assets/audio-off-light.png" : "assets/audio-on-light.png";
-});
+}); // Toggle mute state and icon
 
 const inputSelect = document.querySelector('.inputtemp select');
 const outputSelect = document.querySelector('.outputtemp select');
@@ -79,6 +81,10 @@ document.querySelectorAll('details').forEach((detail) => {
             detail.classList.add('open');
         });
     }
+});
+
+document.getElementById("reset").addEventListener("click", function() {
+    document.querySelector(".explaintemp input").value = "";
 });
 
 function convertTemperature() {
@@ -259,4 +265,20 @@ swapBtn.addEventListener("click", function() {
 
     // Konversi ulang
     convertTemperature();
+});
+
+const themeToggle = document.getElementById('theme-toggle');
+const mainContent = document.querySelector('.main-content');
+// const muteBtn = document.getElementById('mute-btn'); // Removed redeclaration
+const themeIcon = document.getElementById('theme-icon');
+
+themeToggle.addEventListener('click', function() {
+    mainContent.classList.toggle('dark-mode');
+    document.body.classList.toggle('dark-bg');
+    // Ganti icon bulan/matahari jika ingin
+    if (mainContent.classList.contains('dark-mode')) {
+        themeIcon.src = "assets/sun-dark.png"; // ganti ke icon matahari
+    } else {
+        themeIcon.src = "assets/moon-light.png"; // ganti ke icon bulan
+    }
 });
