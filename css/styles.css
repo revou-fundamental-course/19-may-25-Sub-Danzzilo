@@ -468,6 +468,10 @@ details {
         margin: 32px 12px 32px 12px;
     }
 
+    hr {
+        width: 100%;
+    }
+
     #mute-btn {
         width: 36px;
         height: 36px;
