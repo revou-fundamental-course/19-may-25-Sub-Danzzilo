@@ -269,7 +269,7 @@ swapBtn.addEventListener("click", function() {
 
 const themeToggle = document.getElementById('theme-toggle');
 const mainContent = document.querySelector('.main-content');
-// const muteBtn = document.getElementById('mute-btn'); // Removed redeclaration
+// const muteBtn = document.getElementById('mute-btn'); 
 const themeIcon = document.getElementById('theme-icon');
 
 themeToggle.addEventListener('click', function() {
