@@ -1,19 +1,32 @@
 const audio = document.getElementById("background-music");
 if (audio) {
-    audio.volume = 0.2; // Set initial volume to 20%
+    audio.volume = 0.2;
 }
 
-const muteBtn = document.getElementById("mute-btn");
-const muteIcon = document.getElementById("mute-icon");
-const audioEl = document.getElementById("background-music");
+const playPauseBtn = document.getElementById("playpause-btn");
+const playPauseIcon = document.getElementById("playpause-icon");
 
-let isMuted = false;
+function updatePlayPauseIcon() {
+    if (audio.paused) {
+        playPauseIcon.src = "assets/play.png";
+    } else {
+        playPauseIcon.src = "assets/pause.png";
+    }
+}
 
-muteBtn.addEventListener("click", function() {
-    isMuted = !isMuted;
-    audioEl.muted = isMuted;
-    muteIcon.src = isMuted ? "assets/audio-off-light.png" : "assets/audio-on-light.png";
-}); // Toggle mute state and icon
+playPauseBtn.addEventListener("click", function() {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+    updatePlayPauseIcon();
+});
+
+audio.addEventListener("play", updatePlayPauseIcon);
+audio.addEventListener("pause", updatePlayPauseIcon);
+
+document.addEventListener("DOMContentLoaded", updatePlayPauseIcon);
 
 const inputSelect = document.querySelector('.inputtemp select');
 const outputSelect = document.querySelector('.outputtemp select');
