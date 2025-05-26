@@ -288,7 +288,6 @@ const themeIcon = document.getElementById('theme-icon');
 themeToggle.addEventListener('click', function() {
     mainContent.classList.toggle('dark-mode');
     document.body.classList.toggle('dark-bg');
-    // Ganti icon bulan/matahari jika ingin
     if (mainContent.classList.contains('dark-mode')) {
         themeIcon.src = "assets/sun-dark.png"; // ganti ke icon matahari
     } else {
