@@ -1,3 +1,4 @@
+// Pengaturan volume musik latar belakang
 const audio = document.getElementById("background-music");
 if (audio) {
     audio.volume = 0.2;
@@ -6,6 +7,7 @@ if (audio) {
 const playPauseBtn = document.getElementById("playpause-btn");
 const playPauseIcon = document.getElementById("playpause-icon");
 
+// Update ikon play/pause berdasarkan status audio
 function updatePlayPauseIcon() {
     if (audio.paused) {
         playPauseIcon.src = "assets/play.png";
@@ -47,6 +49,7 @@ outputSelect.addEventListener('change', function() {
     convertTemperature(); // otomatis konversi
 });
 
+// Animasi buka tutup smooth pada elemen <details>
 document.querySelectorAll('details').forEach((detail) => {
     const contentEls = Array.from(detail.children).filter(el => el.tagName.toLowerCase() !== 'summary');
     detail.addEventListener('toggle', function() {
@@ -100,6 +103,7 @@ document.getElementById("reset").addEventListener("click", function() {
     document.querySelector(".explaintemp input").value = "";
 });
 
+// Fungsi untuk mengonversi suhu
 function convertTemperature() {
     const inputTemp = document.querySelector(".inputtemp input").value;
     const inputUnit = document.querySelector(".inputtemp select").value;
@@ -259,6 +263,7 @@ function convertTemperature() {
     }
 };
 
+// Event listener untuk tombol konversi
 document.getElementById("convert").addEventListener("click", convertTemperature);
 
 const swapBtn = document.getElementById("swap");
@@ -282,9 +287,9 @@ swapBtn.addEventListener("click", function() {
 
 const themeToggle = document.getElementById('theme-toggle');
 const mainContent = document.querySelector('.main-content');
-// const muteBtn = document.getElementById('mute-btn'); 
 const themeIcon = document.getElementById('theme-icon');
 
+// Dark mode toggle
 themeToggle.addEventListener('click', function() {
     mainContent.classList.toggle('dark-mode');
     document.body.classList.toggle('dark-bg');
