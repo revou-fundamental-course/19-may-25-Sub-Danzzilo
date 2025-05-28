@@ -56,6 +56,7 @@ h2 {
     width: 50%;
 }
 
+/* Background */
 .background {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/background-image2.jpg");
     background-size: cover;
@@ -84,6 +85,7 @@ h2 {
     z-index: -1;
 }
 
+/* Background music button */
 #playpause-btn {
     position: fixed;
     left: 24px;
@@ -117,6 +119,7 @@ h2 {
     pointer-events: none;
 }
 
+/* Theme toggle button */
 #theme-toggle {
     position: absolute;
     top: 12px;
@@ -148,6 +151,7 @@ h2 {
     pointer-events: none;
 }
 
+/* Content */
 .main-content {
     background: rgba(255, 255, 255, 0.55);
     position: relative;
@@ -171,6 +175,7 @@ h2 {
     gap: 6px;
 }
 
+/* Input */
 .inputtemp {
     display: flex;
     width: 80%;
@@ -204,6 +209,7 @@ h2 {
     background-color: #e0e0e0;
 }
 
+/* Swap */
 #swap {
     width: 44px;
     height: 44px;
@@ -234,6 +240,7 @@ h2 {
     background-color: #004080;
 }
 
+/* Output */
 .outputtemp {
     display: flex;
     width: 80%;
@@ -298,6 +305,7 @@ h2 {
     margin-bottom: 16px;
 }
 
+/* Convert & Reset */
 #convert {
     background-color: #007AFF;
     color: #ffffff;
@@ -340,6 +348,7 @@ h2 {
     background-color: #e0e0e0;
 }
 
+/* Summary Explanation */
 details {
     width: 80%;
     margin: 12px auto 20px auto;
@@ -418,10 +427,12 @@ details.open > *:not(summary) {
     padding-bottom: 12px;
 }
 
+/* Note */
 #note {
     margin-bottom: 50px;
 }
 
+/* Watermark */
 .watermark {
     position: absolute;
     left: 50%;
@@ -456,7 +467,7 @@ details {
     opacity: 0.6;
 }
 
-/* Responsive styles for smaller screens */
+/* Responsive screen */
 @media (max-width: 600px) {
     body {
         font-size: 15px;
@@ -624,7 +635,6 @@ details[open] summary {
     background: var(--summary-bg-open);
 }
 
-/* DARK MODE*/
 .main-content.dark-mode {
     --content-bg: #2C2C2E;
     --content-text: #F2F2F7;
